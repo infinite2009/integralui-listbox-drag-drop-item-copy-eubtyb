@@ -1,0 +1,20 @@
+<div class="app-block" #application>
+    <iui-listbox [appRef]="applicationRef" [items]="items" [allowDrag]="true" [allowDrop]="false" [controlStyle]="listStyle" [selectionMode]="selMode" #listbox>
+        <iui-listitem *ngFor="let item of items" [controlStyle]="itemStyle" [allowAnimation]="true">  
+            <div class="lbox-dd-copy-item-content">
+                <span class="lbox-dd-copy-icons {{item.icon}}"></span>
+                <span class="lbox-dd-copy-title">{{item.text}}</span>
+                <span class="lbox-dd-copy-year">{{item.year}}</span>
+            </div>
+        </iui-listitem>
+    </iui-listbox>
+    <iui-listbox [appRef]="applicationRef" [items]="cloneItems" [controlStyle]="cloneListStyle" (dragDrop)="listDrop($event)" #listboxCopy>
+        <iui-listitem *ngFor="let item of cloneItems" [controlStyle]="itemStyle" [allowAnimation]="true">  
+            <div class="lbox-dd-copy-item-content">
+                <span class="lbox-dd-copy-icons {{item.icon}}"></span>
+                <span class="lbox-dd-copy-title">{{item.text}}</span>
+                <span class="lbox-dd-copy-year">{{item.year}}</span>
+            </div>
+        </iui-listitem>
+    </iui-listbox>
+</div>
